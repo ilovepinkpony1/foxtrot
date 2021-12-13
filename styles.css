@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrapper {
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+}
+
+.imageWrapper img {
+  width: 100%;
+}
+
+.questionWrapper {
+  margin: 32px 0;
+  transition: 1s all ease;
+  will-change: opacity, transform;
+}
+
+.questionWrapperHidden {
+  transform: translateY(-40px);
+  opacity: 0;
+}
+
+.answersWrapper {
+  display: flex;
+  transition: 1s all ease;
+}
+
+.answersWrapperHidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-40px);
+}
+
+.answerButton {
+  color: #fff;
+  background-color: rgb(24, 24, 24);
+  width: 240px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  will-change: transform;
+  box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+  border: none;
+}
+
+.answerButton:active, .answerButton:focus {
+  transform: scale(0.95);
+  outline: none;
+}
+
+.answerButton:hover {
+  transform: scale(1.05);
+}
+
+.linksWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.linksWrapper a {
+  color: #fff;
+  background-color: rgb(24, 24, 24);
+  flex: 1;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: 1s all ease;
+  will-change: transform;
+  box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+  border: none;
+  text-decoration: none;
+  opacity: 0;
+  user-select: none;
+}
+
+.linksWrapper a:nth-child(2) {
+  transition-delay: .2s;
+}
+
+.linksWrapper a:nth-child(2) {
+  transition-delay: .4s;
+}
+.linksWrapper a:nth-child(3) {
+  transition-delay: .6s;
+}
+
+
+.linkVisible {
+  opacity: 1 !important;
+  transform: translateY(-80px);
+  user-select: all !important;
+}
+
+@media(max-width: 1024px) {
+  .wrapper {
+    padding: 0 16px;
+  }
+
+  .answersWrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .answerButton {
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  .linksWrapper {
+    flex-direction: column;    
+  }
+
+  
+}
+
+
+* { 
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
