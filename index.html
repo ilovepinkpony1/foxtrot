@@ -234,11 +234,11 @@
         <img src="./assets/Untitled.png" alt="default image">
       </div>
 
-      <h2>
+      <!-- <h2>
         Omae wa doko made miteru
-      </h2>
+      </h2> -->
 
-      <div class="questionWrapper">
+      <div style="margin-top: 32px;" class="questionWrapper">
         Ми разом з <a target="_blank" href="https://uklon.com.ua/">Uklon</a> хочемо, аби ви не відкладали свята на свята
         й починали легенько тупцяти ніжкою вже сьогодні. Для цього
         ми та наші зіркові друзі зібрали 10 плейлистів під різні ситуації, які можуть статися з вами до та під час
@@ -271,10 +271,7 @@
         <img alt="default image">
       </div>
 
-      <div class="questionWrapper">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, cupiditate! Suscipit id nam autem, sunt nemo
-        magnam voluptatibus repellat odit cum tenetur quasi quod mollitia, ab qui nisi dolor eius?
-      </div>
+      <div class="questionWrapper"></div>
 
       <div class="linksWrapper">
         <a href='#'>Apple music</a>
@@ -459,6 +456,7 @@
       const startScreen = document.querySelector('.uklon .startScreen')
       const gameScreen = document.querySelector('.uklon .gameScreen')
       const resultScreen = document.querySelector('.uklon .resultScreen')
+      const resultScreenText = document.querySelector('.uklon .resultScreen .questionWrapper')
 
       textWrapper.innerHTML = questions[0].text
 
@@ -496,6 +494,7 @@
 
         gameScreen.classList.add('gameScreenHidden')
         image.setAttribute('src', currentPlaylist.imageLink)
+        resultScreenText.innerHTML = currentPlaylist.text
 
         setTimeout(() => {
           gameScreen.remove()
