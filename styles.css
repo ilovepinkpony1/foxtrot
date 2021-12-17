@@ -28,8 +28,14 @@ body {
 
 .questionWrapper {
   margin: 32px 0;
+  line-height: 24px;
+  font-weight: 300;
   transition: 1s all ease;
   will-change: opacity, transform;
+}
+
+.questionWrapper a {
+  color: #000;
 }
 
 .questionWrapperHidden {
@@ -97,6 +103,7 @@ body {
   border: none;
   text-decoration: none;
   opacity: 0;
+  transform: translateY(-40px);
   user-select: none;
 }
 
@@ -114,8 +121,51 @@ body {
 
 .linkVisible {
   opacity: 1 !important;
-  transform: translateY(-80px);
+  transform: translateY(0) !important;
   user-select: all !important;
+}
+
+.gameScreen, .resultScreen, .startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s all ease;
+  will-change: transform, opacity;
+}
+
+.gameScreen, .resultScreen {
+  display: none;
+  transform: translateY(40px);
+  opacity: 0; 
+}
+
+.startScreen h2 {
+  margin: 32px 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.startScreen .questionWrapper {
+  margin-top: 0;
+}
+
+.startScreen .answerButton {
+  height: 48px;
+  font-size: 18px;
+}
+
+.gameScreenDisplay, .resultScreenDisplay {
+  display: flex;
+}
+
+.gameScreenVisible, .resultScreenVisible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.startScreenHidden, .gameScreenHidden {
+  transform: translateY(40px);
+  opacity: 0;
 }
 
 @media(max-width: 1024px) {
@@ -136,8 +186,6 @@ body {
   .linksWrapper {
     flex-direction: column;    
   }
-
-  
 }
 
 

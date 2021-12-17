@@ -2,12 +2,17 @@ import { questions, playlists } from './data.js'
 
 window.addEventListener('load', () => {
   const results = []
-  const textWrapper = document.querySelector('.uklon .questionWrapper')
-  const answerButtonPositive = document.querySelector('.uklon .answerButtonPositive')
-  const answerButtonNegative = document.querySelector('.uklon .answerButtonNegative')
-  const answersWrapper = document.querySelector('.uklon .answersWrapper')
-  const image = document.querySelector('.uklon .imageWrapper img')
-  const links = document.querySelectorAll('.uklon .linksWrapper a')
+  const textWrapper = document.querySelector('.uklon .gameScreen .questionWrapper')
+  const answerButtonPositive = document.querySelector('.uklon .gameScreen .answerButtonPositive')
+  const answerButtonNegative = document.querySelector('.uklon .gameScreen .answerButtonNegative')
+  const answersWrapper = document.querySelector('.uklon .gameScreen .answersWrapper')
+  const image = document.querySelector('.uklon .gameScreen .imageWrapper img')
+  const links = document.querySelectorAll('.uklon .resultScreen .linksWrapper a')
+
+  const startButton = document.querySelector('.uklon .startScreen .answerButton')
+  const startScreen = document.querySelector('.uklon .startScreen')
+  const gameScreen = document.querySelector('.uklon .gameScreen')
+  const resultScreen = document.querySelector('.uklon .resultScreen')
 
   textWrapper.innerHTML = questions[0].text
 
@@ -21,19 +26,43 @@ window.addEventListener('load', () => {
     handleCurrentQuestion()
   }
 
+  const handleStartGame = () => {
+    startScreen.classList.add('startScreenHidden')
+
+    setTimeout(() => {
+      startScreen.remove()
+
+      gameScreen.classList.add('gameScreenDisplay')
+
+      setTimeout(() => {
+        gameScreen.classList.add('gameScreenVisible')
+      }, 100);
+    }, 1000);
+  }
+
   const handleEnd = () => {
-    answersWrapper.classList.add('answersWrapperHidden')
     const currentPlaylist = playlists.find(playlist => {
       return results.every((result, index) => {
         return result === playlist.requiredAnswersList[index]
       })
     })
 
-    console.log(currentPlaylist);
 
-    links.forEach(link => {
-      link.classList.add('linkVisible')
-    })
+    gameScreen.classList.add('gameScreenHidden')
+
+    setTimeout(() => {
+      gameScreen.remove()
+      resultScreen.classList.add('resultScreenDisplay')
+
+      setTimeout(() => {
+        resultScreen.classList.add('resultScreenVisible')
+        setTimeout(() => {
+          links.forEach((link) => {
+            link.classList.add('linkVisible')
+          })
+        }, 1000);
+      }, 100);
+    }, 1000);
   }
 
   const handleCurrentQuestion = () => {
@@ -51,7 +80,6 @@ window.addEventListener('load', () => {
 
     if (currentQuestion) {
       setTimeout(() => {
-
         textWrapper.innerHTML = currentQuestion.text
         textWrapper.classList.remove('questionWrapperHidden')
       }, 1000);
@@ -61,6 +89,7 @@ window.addEventListener('load', () => {
     }
   }
 
+  startButton.addEventListener('click', handleStartGame)
   answerButtonPositive.addEventListener('click', handlePositiveAnswer)
   answerButtonNegative.addEventListener('click', handleNegativeAnswer)
 })
