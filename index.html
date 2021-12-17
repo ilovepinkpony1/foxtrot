@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,223 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;300;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .imageWrapper {
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+    }
+
+    .imageWrapper img {
+      width: 100%;
+    }
+
+    .questionWrapper {
+      margin: 32px 0;
+      line-height: 24px;
+      font-weight: 300;
+      transition: 1s all ease;
+      will-change: opacity, transform;
+    }
+
+    .questionWrapper a {
+      color: #000;
+    }
+
+    .questionWrapperHidden {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+
+    .answersWrapper {
+      display: flex;
+      transition: 1s all ease;
+    }
+
+    .answersWrapperHidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-40px);
+    }
+
+    .answerButton {
+      color: #fff;
+      background-color: rgb(24, 24, 24);
+      width: 240px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin: 0 8px;
+      cursor: pointer;
+      transition: 0.5s all ease;
+      will-change: transform;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+      border: none;
+    }
+
+    .answerButton:active,
+    .answerButton:focus {
+      transform: scale(0.95);
+      outline: none;
+    }
+
+    .answerButton:hover {
+      transform: scale(1.05);
+    }
+
+    .linksWrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .linksWrapper a {
+      color: #fff;
+      background-color: rgb(24, 24, 24);
+      flex: 1;
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin: 0 8px;
+      cursor: pointer;
+      transition: 1s all ease;
+      will-change: transform;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+      border: none;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(-40px);
+      user-select: none;
+    }
+
+    .linksWrapper a:nth-child(2) {
+      transition-delay: .2s;
+    }
+
+    .linksWrapper a:nth-child(2) {
+      transition-delay: .4s;
+    }
+
+    .linksWrapper a:nth-child(3) {
+      transition-delay: .6s;
+    }
+
+    .startScreen .answerButton {
+      text-transform: uppercase;
+    }
+
+
+    .linkVisible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      user-select: all !important;
+    }
+
+    .gameScreen,
+    .resultScreen,
+    .startScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 1s all ease;
+      will-change: transform, opacity;
+    }
+
+    .gameScreen,
+    .resultScreen {
+      display: none;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    .startScreen h2 {
+      margin: 32px 0;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .startScreen .questionWrapper {
+      margin-top: 0;
+    }
+
+    .startScreen .answerButton {
+      height: 48px;
+      font-size: 18px;
+    }
+
+    .gameScreenDisplay,
+    .resultScreenDisplay {
+      display: flex;
+    }
+
+    .gameScreenVisible,
+    .resultScreenVisible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .startScreenHidden,
+    .gameScreenHidden {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    @media(max-width: 1024px) {
+      .wrapper {
+        padding: 0 16px;
+      }
+
+      .answersWrapper {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .answerButton {
+        margin: 8px 0;
+        width: 100%;
+      }
+
+
+      .linksWrapper a {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .linksWrapper {
+        flex-direction: column;
+      }
+    }
+
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
+
 <body>
   <div class="wrapper uklon">
 
@@ -21,16 +237,19 @@
       <h2>
         Omae wa doko made miteru
       </h2>
-      
+
       <div class="questionWrapper">
-        Ми разом з <a target="_blank" href="https://uklon.com.ua/">Uklon</a> хочемо, аби ви не відкладали свята на свята й починали легенько тупцяти ніжкою вже сьогодні. Для цього
-        ми та наші зіркові друзі зібрали плейлисти під різні ситуації, які можуть статися з вами до та під час Нового року. Від
-        поїздки на тусовку та скуповування подарунків в останній день і до камерної новорічної вечірки на кухні о 4 ранку. Усе,
-        що потрібно зробити, — це відповісти на декілька питань, і отримати свій плейлист. Леетсгоуу.
+        Ми разом з <a target="_blank" href="https://uklon.com.ua/">Uklon</a> хочемо, аби ви не відкладали свята на свята
+        й починали легенько тупцяти ніжкою вже сьогодні. Для цього
+        ми та наші зіркові друзі зібрали 10 плейлистів під різні ситуації, які можуть статися з вами до та під час
+        Нового року.
+        Від поїздки на тусовку та скуповування подарунків в останній день і до камерної новорічної вечірки на кухні о 4
+        ранку.
+        Усе, що потрібно зробити, — це відповісти на декілька питань і отримати свій плейлист. Леетсгоуу.
       </div>
-      
+
       <div class="answersWrapper">
-        <button class="answerButton">Почати</button>
+        <button class="answerButton">Почати тест</button>
       </div>
     </div>
 
@@ -38,9 +257,9 @@
       <div class="imageWrapper">
         <img src="./assets/Untitled.png" alt="default image">
       </div>
-      
+
       <div class="questionWrapper"></div>
-      
+
       <div class="answersWrapper">
         <button class="answerButton answerButtonPositive">Так</button>
         <button class="answerButton answerButtonNegative">Ні</button>
@@ -49,13 +268,14 @@
 
     <div class="resultScreen">
       <div class="imageWrapper">
-        <img src="./assets/Untitled.png" alt="default image">
+        <img alt="default image">
       </div>
-      
+
       <div class="questionWrapper">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, cupiditate! Suscipit id nam autem, sunt nemo magnam voluptatibus repellat odit cum tenetur quasi quod mollitia, ab qui nisi dolor eius?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, cupiditate! Suscipit id nam autem, sunt nemo
+        magnam voluptatibus repellat odit cum tenetur quasi quod mollitia, ab qui nisi dolor eius?
       </div>
-      
+
       <div class="linksWrapper">
         <a href='#'>Apple music</a>
         <a href='#'>Spotify</a>
@@ -64,7 +284,264 @@
     </div>
   </div>
 
-  <script type="module" src="./app.js"></script>
-  <script type="module" src="./data.js"></script>
+  <script>
+    const questions = [
+      {
+        text: `Шампанське ллється, народ несеться, а від їжі стіл ламається, що хоч підпирай табуреткою, аби не впав. Уже сіли за стіл і розпочали святкування Нового року?`,
+        requiredAnswersList: [],
+        bgImage: ''
+      },
+      {
+        text: `А що, можливо, плануєте кудись їхати чи вже їдете в транспорті?`,
+        requiredAnswersList: [false],
+        bgImage: ''
+      },
+      {
+        text: `Чудово. Президент уже виступав і сказав, що наступного року всі будуть супер щасливі і здорові?`,
+        requiredAnswersList: [true],
+        bgImage: ''
+      },
+      {
+        text: `Дообре. А як загальний вайб вечірки: хтось уже танцює на табуретці, якою підпирали стіл? Чи музика гримить так, що сусіди серйозно задумуються дзвонити в поліцію?`,
+        requiredAnswersList: [true, true],
+        bgImage: ''
+      },
+      {
+        text: `Окей, і на цьому дякуємо. Тоді, можливо, у вас усе дуже камерно? Уже скоро-скоро світатиме, а вас декілька людей на кухні, й розмови несуться, хоч бери та подкаст записуй?`,
+        requiredAnswersList: [true, true, false],
+        bgImage: ''
+      },
+      {
+        text: `Ви часом не мандарини чистите?`,
+        requiredAnswersList: [true, false],
+        bgImage: ''
+      },
+      {
+        text: `Чи відчуваєте легесеньке хвилювання?`,
+        requiredAnswersList: [false, true],
+        bgImage: ''
+      },
+      {
+        text: `Можливо, ви активно готуєтеся до святкування Нового року, все горить і все палає, і навіть трішки пахне?`,
+        requiredAnswersList: [false, false],
+        bgImage: ''
+      },
+      {
+        text: `Сподіваємося, що ви встигли все купити до святкування Нового року?`,
+        requiredAnswersList: [false, true, true],
+        bgImage: ''
+      },
+    ]
+
+    const playlists = [
+      {
+        text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_08.jpg?alt=media&token=2a818706-46b4-4a39-9018-f0520d1b28aa`,
+
+        links: {
+          apple: '1',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [true, true, true]
+      },
+      {
+        text: `Музика, що вбереже вас від людей, які постійно підходять і просять усіх танцювати. Бо саме ви будете цією людиною. Ха, майже як передбачення на чеку однієї відомої продуктової мережі.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_07.jpg?alt=media&token=bf9e0ea2-a265-4813-a9d8-45ffc906aca2`,
+
+        links: {
+          apple: '2',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [true, true, false, false]
+      },
+      {
+        text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_09.jpg?alt=media&token=fe0761a1-d18e-454e-8579-7c35f62d067a`,
+
+        links: {
+          apple: '3',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [true, true, false, true]
+      },
+      {
+        text: `Одну часточку за маму, одну за тата, одну за улюблене медіа, яке ненудно розповідає про креативну економіку. `,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_01.jpg?alt=media&token=59552f53-7581-49ec-876b-6b1b5d406669`,
+
+        links: {
+          apple: '4',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [true, false, true]
+      },
+      {
+        text: `Залишилося ще трішки, і вже можна перестати всім казати «З прийдешніми святами!».`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_06.jpg?alt=media&token=76eb59a4-0edf-4e6e-aa0d-be4f1ed9bcb9`,
+
+        links: {
+          apple: '5',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [true, false, false]
+      },
+      {
+        text: `Ми так і знали, що ви проходите цей тест на роботі. Keep pushing, залишилось зовсім трішки — і вихідні. А поки тримайте музику для своїх клацань на компуктері. Не забудьте поділитися з колегами.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_02.jpg?alt=media&token=da622f2b-af82-44e6-bae7-a4fb4f159ddc`,
+
+        links: {
+          apple: '6',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [false, false, false]
+      },
+      {
+        text: `Йоооу, а цей плейлист робив я, людина, яка пише цей текст. Рекомендовано до вживання в таксі перед вечорницями та новорічною тусовкою, аби налаштуватися на ту саму хвилю, про яку співав Marvin Gaye.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_05.jpg?alt=media&token=ea31a4da-eac9-4bba-ab5b-79450eb483f1`,
+
+        links: {
+          apple: '7',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [false, true, true, true]
+      },
+      {
+        text: `Скуповуєте подарунки в останній момент. Ну, який рік такий і шопінг.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_04.jpg?alt=media&token=83a891f1-53a7-4e76-96c8-69144e94921c`,
+
+        links: {
+          apple: '8',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [false, true, true, false]
+      },
+      {
+        text: `Ми вже майже приїхали, ще трішки й будете вдома спати, а поки потупцяйте ще хоч трішки ніжкою і покрутіть пальчиком під музику.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_10.jpg?alt=media&token=1f992633-429c-4f57-aeef-ddbfe5eac3e5`,
+
+        links: {
+          apple: '9',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [false, true, false]
+      },
+      {
+        text: `Свято наближається, а у вас ще ялинка без зірочки і холодильник не забитий салатами і кока-колою. Давайте це виправляти. `,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_03.jpg?alt=media&token=26f91c4a-4c72-411d-8d47-f475978b4e05`,
+
+        links: {
+          apple: '10',
+          youtube: '',
+          spotify: ''
+        },
+        requiredAnswersList: [false, false, true]
+      },
+    ]
+
+    window.addEventListener('load', () => {
+      const results = []
+      const textWrapper = document.querySelector('.uklon .gameScreen .questionWrapper')
+      const answerButtonPositive = document.querySelector('.uklon .gameScreen .answerButtonPositive')
+      const answerButtonNegative = document.querySelector('.uklon .gameScreen .answerButtonNegative')
+      const answersWrapper = document.querySelector('.uklon .gameScreen .answersWrapper')
+      const image = document.querySelector('.uklon .resultScreen img')
+      const links = document.querySelectorAll('.uklon .resultScreen .linksWrapper a')
+
+      const startButton = document.querySelector('.uklon .startScreen .answerButton')
+      const startScreen = document.querySelector('.uklon .startScreen')
+      const gameScreen = document.querySelector('.uklon .gameScreen')
+      const resultScreen = document.querySelector('.uklon .resultScreen')
+
+      textWrapper.innerHTML = questions[0].text
+
+      const handlePositiveAnswer = () => {
+        results.push(true)
+        handleCurrentQuestion()
+      }
+
+      const handleNegativeAnswer = () => {
+        results.push(false)
+        handleCurrentQuestion()
+      }
+
+      const handleStartGame = () => {
+        startScreen.classList.add('startScreenHidden')
+
+        setTimeout(() => {
+          startScreen.remove()
+
+          gameScreen.classList.add('gameScreenDisplay')
+
+          setTimeout(() => {
+            gameScreen.classList.add('gameScreenVisible')
+          }, 100);
+        }, 1000);
+      }
+
+      const handleEnd = () => {
+        const currentPlaylist = playlists.find(playlist => {
+          return results.every((result, index) => {
+            return result === playlist.requiredAnswersList[index]
+          })
+        })
+
+
+        gameScreen.classList.add('gameScreenHidden')
+        image.setAttribute('src', currentPlaylist.imageLink)
+
+        setTimeout(() => {
+          gameScreen.remove()
+          resultScreen.classList.add('resultScreenDisplay')
+
+          setTimeout(() => {
+            resultScreen.classList.add('resultScreenVisible')
+            setTimeout(() => {
+              links.forEach((link) => {
+                link.classList.add('linkVisible')
+              })
+            }, 1000);
+          }, 100);
+        }, 1000);
+      }
+
+      const handleCurrentQuestion = () => {
+        textWrapper.classList.add('questionWrapperHidden')
+
+        const currentQuestion = questions.find(question => {
+          if (question.requiredAnswersList.length) {
+            return results.every((result, index) => {
+              return result === question.requiredAnswersList[index]
+            })
+          }
+
+          return false
+        })
+
+        if (currentQuestion) {
+          setTimeout(() => {
+            textWrapper.innerHTML = currentQuestion.text
+            textWrapper.classList.remove('questionWrapperHidden')
+          }, 1000);
+
+        } else {
+          handleEnd()
+        }
+      }
+
+      startButton.addEventListener('click', handleStartGame)
+      answerButtonPositive.addEventListener('click', handlePositiveAnswer)
+      answerButtonNegative.addEventListener('click', handleNegativeAnswer)
+    })
+  </script>
+
 </body>
+
 </html>

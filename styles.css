@@ -118,6 +118,10 @@ body {
   transition-delay: .6s;
 }
 
+.startScreen .answerButton {
+  text-transform: uppercase;
+}
+
 
 .linkVisible {
   opacity: 1 !important;
@@ -181,6 +185,11 @@ body {
   .answerButton {
     margin: 8px 0;
     width: 100%;
+  }
+
+  .linksWrapper a {
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   .linksWrapper {

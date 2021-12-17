@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
   const answerButtonPositive = document.querySelector('.uklon .gameScreen .answerButtonPositive')
   const answerButtonNegative = document.querySelector('.uklon .gameScreen .answerButtonNegative')
   const answersWrapper = document.querySelector('.uklon .gameScreen .answersWrapper')
-  const image = document.querySelector('.uklon .gameScreen .imageWrapper img')
+  const image = document.querySelector('.uklon .resultScreen img')
   const links = document.querySelectorAll('.uklon .resultScreen .linksWrapper a')
 
   const startButton = document.querySelector('.uklon .startScreen .answerButton')
@@ -49,6 +49,7 @@ window.addEventListener('load', () => {
 
 
     gameScreen.classList.add('gameScreenHidden')
+    image.setAttribute('src', currentPlaylist.imageLink)
 
     setTimeout(() => {
       gameScreen.remove()
