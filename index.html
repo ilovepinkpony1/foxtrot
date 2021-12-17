@@ -10,16 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;300;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .wrapper {
+    .uklon {
       max-width: 600px;
       width: 100%;
       display: flex;
@@ -27,18 +18,18 @@
       align-items: center;
     }
 
-    .imageWrapper {
+    .uklon .imageWrapper {
       border-radius: 4px;
       overflow: hidden;
       display: flex;
       box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
     }
 
-    .imageWrapper img {
+    .uklon .imageWrapper img {
       width: 100%;
     }
 
-    .questionWrapper {
+    .uklon .questionWrapper {
       margin: 32px 0;
       line-height: 24px;
       font-weight: 300;
@@ -46,27 +37,27 @@
       will-change: opacity, transform;
     }
 
-    .questionWrapper a {
+    .uklon .questionWrapper a {
       color: #000;
     }
 
-    .questionWrapperHidden {
+    .uklon .questionWrapperHidden {
       transform: translateY(-40px);
       opacity: 0;
     }
 
-    .answersWrapper {
+    .uklon .answersWrapper {
       display: flex;
       transition: 1s all ease;
     }
 
-    .answersWrapperHidden {
+    .uklon .answersWrapperHidden {
       opacity: 0;
       visibility: hidden;
       transform: translateY(-40px);
     }
 
-    .answerButton {
+    .uklon .answerButton {
       color: #fff;
       background-color: rgb(24, 24, 24);
       width: 240px;
@@ -83,23 +74,23 @@
       border: none;
     }
 
-    .answerButton:active,
-    .answerButton:focus {
+    .uklon .answerButton:active,
+    .uklon .answerButton:focus {
       transform: scale(0.95);
       outline: none;
     }
 
-    .answerButton:hover {
+    .uklon .answerButton:hover {
       transform: scale(1.05);
     }
 
-    .linksWrapper {
+    .uklon .linksWrapper {
       display: flex;
       align-items: center;
       width: 100%;
     }
 
-    .linksWrapper a {
+    .uklon .linksWrapper a {
       color: #fff;
       background-color: rgb(24, 24, 24);
       flex: 1;
@@ -120,32 +111,32 @@
       user-select: none;
     }
 
-    .linksWrapper a:nth-child(2) {
+    .uklon .linksWrapper a:nth-child(2) {
       transition-delay: .2s;
     }
 
-    .linksWrapper a:nth-child(2) {
+    .uklon .linksWrapper a:nth-child(2) {
       transition-delay: .4s;
     }
 
-    .linksWrapper a:nth-child(3) {
+    .uklon .linksWrapper a:nth-child(3) {
       transition-delay: .6s;
     }
 
-    .startScreen .answerButton {
+    .uklon .startScreen .answerButton {
       text-transform: uppercase;
     }
 
 
-    .linkVisible {
+    .uklon .linkVisible {
       opacity: 1 !important;
       transform: translateY(0) !important;
       user-select: all !important;
     }
 
-    .gameScreen,
-    .resultScreen,
-    .startScreen {
+    .uklon .gameScreen,
+    .uklon .resultScreen,
+    .uklon .startScreen {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -153,67 +144,67 @@
       will-change: transform, opacity;
     }
 
-    .gameScreen,
-    .resultScreen {
+    .uklon .gameScreen,
+    .uklon .resultScreen {
       display: none;
       transform: translateY(40px);
       opacity: 0;
     }
 
-    .startScreen h2 {
+    .uklon .startScreen h2 {
       margin: 32px 0;
       font-size: 32px;
       font-weight: 600;
     }
 
-    .startScreen .questionWrapper {
+    .uklon .startScreen .questionWrapper {
       margin-top: 0;
     }
 
-    .startScreen .answerButton {
+    .uklon .startScreen .answerButton {
       height: 48px;
       font-size: 18px;
     }
 
-    .gameScreenDisplay,
-    .resultScreenDisplay {
+    .uklon .gameScreenDisplay,
+    .uklon .resultScreenDisplay {
       display: flex;
     }
 
-    .gameScreenVisible,
-    .resultScreenVisible {
+    .uklon .gameScreenVisible,
+    .uklon .resultScreenVisible {
       transform: translateY(0);
       opacity: 1;
     }
 
-    .startScreenHidden,
-    .gameScreenHidden {
+    .uklon .startScreenHidden,
+    .uklon .gameScreenHidden {
       transform: translateY(40px);
       opacity: 0;
     }
 
     @media(max-width: 1024px) {
-      .wrapper {
+      .uklon .wrapper {
         padding: 0 16px;
       }
 
-      .answersWrapper {
+      .uklon .answersWrapper {
         flex-direction: column;
         width: 100%;
       }
 
-      .answerButton {
+      .uklon .answerButton {
         margin: 8px 0;
         width: 100%;
       }
 
 
-      .linksWrapper a {
+      .uklon .linksWrapper a {
         width: 100%;
         margin-bottom: 16px;
       }
 
-      .linksWrapper {
+      .uklon .linksWrapper {
         flex-direction: column;
       }
     }
