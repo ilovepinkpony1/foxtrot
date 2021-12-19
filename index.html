@@ -17,7 +17,7 @@
       flex-direction: column;
       align-items: center;
       margin: 0 auto;
-      color: #fff;
+      color: #000;
     }
 
     .uklon .imageWrapper {
@@ -35,13 +35,23 @@
       width: 100%;
     }
 
+    .uklon .gameScreen .imageWrapper {
+      transition: 1.1s all ease;
+      will-change: opacity, transform;
+    } 
+
+    .uklon .gameScreen .imageWrapperHidden {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+
     .uklon .questionWrapper {
       margin: 32px 0;
       line-height: 24px;
       font-weight: 300;
       transition: 1s all ease;
       will-change: opacity, transform;
-      color: #fff;
+      color: #000;
     }
 
     .uklon .questionWrapper a {
@@ -253,7 +263,7 @@
 
     <div class="gameScreen">
       <div class="imageWrapper">
-        <img src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/Untitled.png?alt=media&token=baf5ff1e-e1ad-4e39-9315-a8815d2fce7d" alt="default image">
+        <img src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D1%81%D1%8C%D0%BA%D0%B5%20%D0%BB%D0%BB%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%20%D0%BD%D0%B5%D1%81%D0%B5%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%B0%20%D0%B2%D1%96%D0%B4%20%D1%96%CC%88%D0%B6%D1%96%20%D1%81%D1%82%D1%96%D0%BB%20%D0%BB%D0%B0%D0%BC%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D1%85%D0%BE%D1%87%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%B8%CC%86%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D0%BA%D0%BE%D1%8E%2C%20%D0%B0%D0%B1%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D0%BF%D0%B0%D0%B2.%20%D0%A3%D0%B6%D0%B5%20%D1%81%D1%96%D0%BB%D0%B8%20%D0%B7%D0%B0%20%D1%81%D1%82%D1%96%D0%BB%20%D1%96%20%D1%80%D0%BE%D0%B7%D0%BF%D0%BE%D1%87%D0%B0%D0%BB%D0%B8%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=2271ba3a-2845-4998-aaaf-26ecfd2140a7" alt="default image">
       </div>
 
       <div class="questionWrapper"></div>
@@ -284,54 +294,54 @@
       {
         text: `Шампанське ллється, народ несеться, а від їжі стіл ламається, що хоч підпирай табуреткою, аби не впав. Уже сіли за стіл і розпочали святкування Нового року?`,
         requiredAnswersList: [],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D1%81%D1%8C%D0%BA%D0%B5%20%D0%BB%D0%BB%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%20%D0%BD%D0%B5%D1%81%D0%B5%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%B0%20%D0%B2%D1%96%D0%B4%20%D1%96%CC%88%D0%B6%D1%96%20%D1%81%D1%82%D1%96%D0%BB%20%D0%BB%D0%B0%D0%BC%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D1%85%D0%BE%D1%87%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%B8%CC%86%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D0%BA%D0%BE%D1%8E%2C%20%D0%B0%D0%B1%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D0%BF%D0%B0%D0%B2.%20%D0%A3%D0%B6%D0%B5%20%D1%81%D1%96%D0%BB%D0%B8%20%D0%B7%D0%B0%20%D1%81%D1%82%D1%96%D0%BB%20%D1%96%20%D1%80%D0%BE%D0%B7%D0%BF%D0%BE%D1%87%D0%B0%D0%BB%D0%B8%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=2271ba3a-2845-4998-aaaf-26ecfd2140a7'
       },
       {
         text: `А що, можливо, плануєте кудись їхати чи вже їдете в транспорті?`,
         requiredAnswersList: [false],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%90%20%D1%89%D0%BE%2C%20%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D0%BF%D0%BB%D0%B0%D0%BD%D1%83%D1%94%D1%82%D0%B5%20%D0%BA%D1%83%D0%B4%D0%B8%D1%81%D1%8C%20%D1%96%CC%88%D1%85%D0%B0%D1%82%D0%B8%20%D1%87%D0%B8%20%D0%B2%D0%B6%D0%B5%20%D1%96%CC%88%D0%B4%D0%B5%D1%82%D0%B5%20%D0%B2%20%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D1%96_.jpg?alt=media&token=79341422-32cd-4d67-a7c4-45dfdee9c64b'
       },
       {
         text: `Чудово. Президент уже виступав і сказав, що наступного року всі будуть супер щасливі і здорові?`,
         requiredAnswersList: [true],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A7%D1%83%D0%B4%D0%BE%D0%B2%D0%BE.%20%D0%9F%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%20%D1%83%D0%B6%D0%B5%20%D0%B2%D0%B8%D1%81%D1%82%D1%83%D0%BF%D0%B0%D0%B2%20%D1%96%20%D1%81%D0%BA%D0%B0%D0%B7%D0%B0%D0%B2%2C%20%D1%89%D0%BE%20%D0%BD%D0%B0%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83%20%D0%B2%D1%81%D1%96%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%D1%8C%20%D1%81%D1%83%D0%BF%D0%B5%D1%80%D1%89%D0%B0%D1%81%D0%BB%D0%B8%D0%B2%D1%96%20%D1%96%20%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%96_.jpg?alt=media&token=d00a1413-c1e7-4193-84a7-ef2c714b2dc6'
       },
       {
         text: `Дообре. А як загальний вайб вечірки: хтось уже танцює на табуретці, якою підпирали стіл? Чи музика гримить так, що сусіди серйозно задумуються дзвонити в поліцію?`,
         requiredAnswersList: [true, true],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%94%D0%BE%D0%BE%D0%B1%D1%80%D0%B5.%20%D0%90%20%D1%8F%D0%BA%20%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B8%CC%86%20%D0%B2%D0%B0%D0%B8%CC%86%D0%B1%20%D0%B2%D0%B5%D1%87%D1%96%D1%80%D0%BA%D0%B8_%20%D1%85%D1%82%D0%BE%D1%81%D1%8C%20%D1%83%D0%B6%D0%B5%20%D1%82%D0%B0%D0%BD%D1%86%D1%8E%D1%94%20%D0%BD%D0%B0%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D1%86%D1%96%2C%20%D1%8F%D0%BA%D0%BE%D1%8E%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%BB%D0%B8%20%D1%81%D1%82%D1%96%D0%BB_%20%D0%A7%D0%B8%20%D0%BC%D1%83%D0%B7%D0%B8%D0%BA%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BC%D0%B8%D1%82%D1%8C%20%D1%82%D0%B0%D0%BA%2C%20%D1%89%D0%BE%20%D1%81%D1%83%D1%81%D1%96%D0%B4%D0%B8%20%D1%81%D0%B5%D1%80%D0%B8%CC%86%D0%BE%D0%B7%D0%BD%D0%BE%20%D0%B7%D0%B0%D0%B4%D1%83%D0%BC%D1%83%D1%8E%D1%82%D1%8C%D1%81%D1%8F%20%D0%B4%D0%B7%D0%B2%D0%BE%D0%BD%D0%B8%D1%82%D0%B8%20%D0%B2%20%D0%BF%D0%BE%D0%BB%D1%96%D1%86%D1%96%D1%8E_.jpg?alt=media&token=9e7b7aac-87d4-4c87-ad29-91fcf249a3bd'
       },
       {
         text: `Окей, і на цьому дякуємо. Тоді, можливо, у вас усе дуже камерно? Уже скоро-скоро світатиме, а вас декілька людей на кухні, й розмови несуться, хоч бери та подкаст записуй?`,
         requiredAnswersList: [true, true, false],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9E%D0%BA%D0%B5%D0%B8%CC%86%2C%20%D1%96%20%D0%BD%D0%B0%20%D1%86%D1%8C%D0%BE%D0%BC%D1%83%20%D0%B4%D1%8F%D0%BA%D1%83%D1%94%D0%BC%D0%BE.%20%D0%A2%D0%BE%D0%B4%D1%96%2C%20%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D1%83%20%D0%B2%D0%B0%D1%81%20%D1%83%D1%81%D0%B5%20%D0%B4%D1%83%D0%B6%D0%B5%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%BD%D0%BE_%20%D0%A3%D0%B6%D0%B5%20%D1%81%D0%BA%D0%BE%D1%80%D0%BE-%D1%81%D0%BA%D0%BE%D1%80%D0%BE%20%D1%81%D0%B2%D1%96%D1%82%D0%B0%D1%82%D0%B8%D0%BC%D0%B5%2C%20%D0%B0%20%D0%B2%D0%B0%D1%81%20%D0%B4%D0%B5%D0%BA%D1%96%D0%BB%D1%8C%D0%BA%D0%B0%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B8%CC%86%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%85%D0%BD%D1%96%2C%20%D0%B8%CC%86%20%D1%80%D0%BE%D0%B7%D0%BC%D0%BE%D0%B2%D0%B8%20%D0%BD%D0%B5%D1%81%D1%83%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%85%D0%BE%D1%87%20%D0%B1%D0%B5%D1%80%D0%B8%20%D1%82%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%83%D0%B8%CC%86_.jpg?alt=media&token=336de616-c7bc-4048-b60b-b4038dba1d20'
       },
       {
         text: `Ви часом не мандарини чистите?`,
         requiredAnswersList: [true, false],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%92%D0%B8%20%D1%87%D0%B0%D1%81%D0%BE%D0%BC%20%D0%BD%D0%B5%20%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D0%B8%D0%BD%D0%B8%20%D1%87%D0%B8%D1%81%D1%82%D0%B8%D1%82%D0%B5_.jpg?alt=media&token=42dae356-1ef1-478c-8afb-6428364aa241'
       },
       {
         text: `Чи відчуваєте легесеньке хвилювання?`,
         requiredAnswersList: [false, true],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A7%D0%B8%20%D0%B2%D1%96%D0%B4%D1%87%D1%83%D0%B2%D0%B0%D1%94%D1%82%D0%B5%20%D0%BB%D0%B5%D0%B3%D0%B5%D1%81%D0%B5%D0%BD%D1%8C%D0%BA%D0%B5%20%D1%85%D0%B2%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F_%20.jpg?alt=media&token=29e12759-bb05-4567-9b49-e7d874fdcc7d'
       },
       {
         text: `Можливо, ви активно готуєтеся до святкування Нового року, все горить і все палає, і навіть трішки пахне?`,
         requiredAnswersList: [false, false],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9C%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D0%B2%D0%B8%20%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%B3%D0%BE%D1%82%D1%83%D1%94%D1%82%D0%B5%D1%81%D1%8F%20%D0%B4%D0%BE%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83%2C%20%D0%B2%D1%81%D0%B5%20%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D1%8C%20%D1%96%20%D0%B2%D1%81%D0%B5%20%D0%BF%D0%B0%D0%BB%D0%B0%D1%94%2C%20%D1%96%20%D0%BD%D0%B0%D0%B2%D1%96%D1%82%D1%8C%20%D1%82%D1%80%D1%96%D1%88%D0%BA%D0%B8%20%D0%BF%D0%B0%D1%85%D0%BD%D0%B5_.jpg?alt=media&token=b9726918-9c03-4354-8855-10006a56c9d0'
       },
       {
         text: `Сподіваємося, що ви встигли все купити до святкування Нового року?`,
         requiredAnswersList: [false, true, true],
-        bgImage: ''
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A1%D0%BF%D0%BE%D0%B4%D1%96%D0%B2%D0%B0%D1%94%D0%BC%D0%BE%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D0%B2%D0%B8%20%D0%B2%D1%81%D1%82%D0%B8%D0%B3%D0%BB%D0%B8%20%D0%B2%D1%81%D0%B5%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D0%B8%20%D0%B4%D0%BE%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=383640f6-f630-404d-b78a-37c604f5c7ea'
       },
     ]
 
     const playlists = [
       {
         text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_08.jpg?alt=media&token=2a818706-46b4-4a39-9018-f0520d1b28aa`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%BD%D0%BE%D0%B2%D0%B8%D0%B8%CC%86%206.jpg?alt=media&token=eded7e8e-98f7-4ae6-b3b5-279ce582bd4e`,
 
         links: {
           apple: '1',
@@ -342,7 +352,7 @@
       },
       {
         text: `Музика, що вбереже вас від людей, які постійно підходять і просять усіх танцювати. Бо саме ви будете цією людиною. Ха, майже як передбачення на чеку однієї відомої продуктової мережі.`,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_07.jpg?alt=media&token=bf9e0ea2-a265-4813-a9d8-45ffc906aca2`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%9E%D0%92%D0%98%D0%98%CC%86%201.jpg?alt=media&token=9ea7a432-3c92-4b30-b91f-932a68add84a`,
 
         links: {
           apple: '2',
@@ -353,7 +363,7 @@
       },
       {
         text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_09.jpg?alt=media&token=fe0761a1-d18e-454e-8579-7c35f62d067a`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%BE%D0%B2%D0%B8%D0%B8%CC%86%202.jpg?alt=media&token=0c8f2f56-4b8b-4d0e-8952-b4411a2a4b90`,
 
         links: {
           apple: '3',
@@ -364,7 +374,7 @@
       },
       {
         text: `Одну часточку за маму, одну за тата, одну за улюблене медіа, яке ненудно розповідає про креативну економіку. `,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_01.jpg?alt=media&token=59552f53-7581-49ec-876b-6b1b5d406669`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%9E%D0%92%D0%98%D0%98%CC%86%20(1).jpg?alt=media&token=db2827ae-db2a-481b-9cad-0a76760b2211`,
 
         links: {
           apple: '4',
@@ -430,7 +440,7 @@
       },
       {
         text: `Свято наближається, а у вас ще ялинка без зірочки і холодильник не забитий салатами і кока-колою. Давайте це виправляти. `,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_03.jpg?alt=media&token=26f91c4a-4c72-411d-8d47-f475978b4e05`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%BD%D0%BE%D0%B2%D0%B8%D0%B8%CC%86.jpg?alt=media&token=12362d8e-57b9-4053-ad76-9ef8d52c7c04`,
 
         links: {
           apple: '10',
@@ -448,6 +458,8 @@
       const answerButtonNegative = document.querySelector('.uklon .gameScreen .answerButtonNegative')
       const answersWrapper = document.querySelector('.uklon .gameScreen .answersWrapper')
       const image = document.querySelector('.uklon .resultScreen img')
+      const questionImage = document.querySelector('.uklon .gameScreen img')
+      const questionImageWrapper = document.querySelector('.uklon .gameScreen .imageWrapper')
       const links = document.querySelectorAll('.uklon .resultScreen .linksWrapper a')
 
       const startButton = document.querySelector('.uklon .startScreen .answerButton')
@@ -511,6 +523,7 @@
 
       const handleCurrentQuestion = () => {
         textWrapper.classList.add('questionWrapperHidden')
+        questionImageWrapper.classList.add('imageWrapperHidden')
 
         const currentQuestion = questions.find(question => {
           if (question.requiredAnswersList.length) {
@@ -522,10 +535,17 @@
           return false
         })
 
-        if (currentQuestion) {
+        if (currentQuestion) { 
+          
+          setTimeout(() => {
+            questionImage.setAttribute('src', currentQuestion.bgImage)
+          }, 500);  
+
           setTimeout(() => {
             textWrapper.innerHTML = currentQuestion.text
             textWrapper.classList.remove('questionWrapperHidden')
+            questionImageWrapper.classList.remove('imageWrapperHidden')
+
           }, 1000);
 
         } else {
