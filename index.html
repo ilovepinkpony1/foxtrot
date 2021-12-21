@@ -17,7 +17,7 @@
       flex-direction: column;
       align-items: center;
       margin: 0 auto;
-      color: #000;
+      color: #fff;
     }
 
     .uklon .imageWrapper {
@@ -51,7 +51,7 @@
       font-weight: 300;
       transition: 1s all ease;
       will-change: opacity, transform;
-      color: #000;
+      color: #fff;
     }
 
     .uklon .questionWrapper a {
@@ -239,7 +239,7 @@
 
     <div class="startScreen">
       <div class="imageWrapper">
-        <img src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/Untitled.png?alt=media&token=baf5ff1e-e1ad-4e39-9315-a8815d2fce7d" alt="default image">
+        <img src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover.jpg?alt=media&token=78c918d3-f4fc-41d3-86f7-a861d3c6dd1a" alt="default image">
       </div>
 
       <!-- <h2>
@@ -282,9 +282,9 @@
       <div class="questionWrapper"></div>
 
       <div class="linksWrapper">
-        <a href='#'>Apple music</a>
-        <a href='#'>Spotify</a>
-        <a href='#'>Youtube music</a>
+        <a data-type='apple' target="_blank">Apple music</a>
+        <a data-type='spotify' target="_blank">Spotify</a>
+        <a data-type='youtube' target="_blank">Youtube music</a>
       </div>
     </div>
   </div>
@@ -304,7 +304,7 @@
       {
         text: `Чудово. Президент уже виступав і сказав, що наступного року всі будуть супер щасливі і здорові?`,
         requiredAnswersList: [true],
-        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A7%D1%83%D0%B4%D0%BE%D0%B2%D0%BE.%20%D0%9F%D1%80%D0%B5%D0%B7%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%20%D1%83%D0%B6%D0%B5%20%D0%B2%D0%B8%D1%81%D1%82%D1%83%D0%BF%D0%B0%D0%B2%20%D1%96%20%D1%81%D0%BA%D0%B0%D0%B7%D0%B0%D0%B2%2C%20%D1%89%D0%BE%20%D0%BD%D0%B0%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83%20%D0%B2%D1%81%D1%96%20%D0%B1%D1%83%D0%B4%D1%83%D1%82%D1%8C%20%D1%81%D1%83%D0%BF%D0%B5%D1%80%D1%89%D0%B0%D1%81%D0%BB%D0%B8%D0%B2%D1%96%20%D1%96%20%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%96_.jpg?alt=media&token=d00a1413-c1e7-4193-84a7-ef2c714b2dc6'
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_test_03.jpg?alt=media&token=5f778fea-ac74-49e5-8a21-bace7cd100e3'
       },
       {
         text: `Дообре. А як загальний вайб вечірки: хтось уже танцює на табуретці, якою підпирали стіл? Чи музика гримить так, що сусіди серйозно задумуються дзвонити в поліцію?`,
@@ -341,12 +341,12 @@
     const playlists = [
       {
         text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
-        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%BD%D0%BE%D0%B2%D0%B8%D0%B8%CC%86%206.jpg?alt=media&token=eded7e8e-98f7-4ae6-b3b5-279ce582bd4e`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_08.jpg?alt=media&token=5c7e593c-6350-4264-ae36-ea318aaaec0e`,
 
         links: {
-          apple: '1',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.pmrAeqACeZLJvMZ',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZMQAvEXQ9Z0MQZ2IILRVzJm',
+          spotify: 'https://open.spotify.com/playlist/6awe55EwcXYsUmG24md8lt'
         },
         requiredAnswersList: [true, true, true]
       },
@@ -355,20 +355,20 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%9E%D0%92%D0%98%D0%98%CC%86%201.jpg?alt=media&token=9ea7a432-3c92-4b30-b91f-932a68add84a`,
 
         links: {
-          apple: '2',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.5PG5gKeib1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZMBXraDrlp3usL3rPOiTJej',
+          spotify: 'https://open.spotify.com/playlist/2gMySXVFpQDekNgm7tQKqL?si=d3dbc77eabe443cd&nd=1'
         },
         requiredAnswersList: [true, true, false, false]
       },
       {
-        text: `Усі мелодії вже проспівали, всі вірші вже написали, всі люди вже заснули. І вся вечірка тримається тільки на декількох поетичних душах на кухні. Мікрофон ваш.`,
+        text: `Ми вже майже приїхали, ще трішки й будете вдома спати, а поки потупцяйте ще хоч трішки ніжкою і покрутіть пальчиком під музику. `,
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%BE%D0%B2%D0%B8%D0%B8%CC%86%202.jpg?alt=media&token=0c8f2f56-4b8b-4d0e-8952-b4411a2a4b90`,
 
         links: {
-          apple: '3',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.8Wx6LVDiMaQP6Da',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZNoqXaZ78seB020r6i2kMGO',
+          spotify: 'https://open.spotify.com/playlist/59Ezo2S2LxI5H6kaTZU8fz'
         },
         requiredAnswersList: [true, true, false, true]
       },
@@ -377,9 +377,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9D%D0%9E%D0%92%D0%98%D0%98%CC%86%20(1).jpg?alt=media&token=db2827ae-db2a-481b-9cad-0a76760b2211`,
 
         links: {
-          apple: '4',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.oOzAa4ouEaJNMZa',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOgcqCkEo-iL941smuAldrM',
+          spotify: 'https://open.spotify.com/playlist/7xX9ljdVdBgwwHdIqTUlWS'
         },
         requiredAnswersList: [true, false, true]
       },
@@ -388,9 +388,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_06.jpg?alt=media&token=76eb59a4-0edf-4e6e-aa0d-be4f1ed9bcb9`,
 
         links: {
-          apple: '5',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.5PG5g68hb1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPw3ufLFwlFFpgAC3l1U0Ow',
+          spotify: 'https://open.spotify.com/playlist/4NI1CuhId5dVh9RJhLVb71'
         },
         requiredAnswersList: [true, false, false]
       },
@@ -399,9 +399,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_02.jpg?alt=media&token=da622f2b-af82-44e6-bae7-a4fb4f159ddc`,
 
         links: {
-          apple: '6',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.kGoqXWMCd5E4zx5',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOSRF_tlOhPUaG3Qbuejhbp',
+          spotify: 'https://open.spotify.com/playlist/2NpdUuUUfv0eBdG7GMYSkd'
         },
         requiredAnswersList: [false, false, false]
       },
@@ -410,9 +410,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_05.jpg?alt=media&token=ea31a4da-eac9-4bba-ab5b-79450eb483f1`,
 
         links: {
-          apple: '7',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.pmrAevVIeZLJvMZ',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPdke0e-VIJt88lBcu-XB2M',
+          spotify: 'https://open.spotify.com/playlist/6XTjPzoRvVFiZ1rgk3rhnF'
         },
         requiredAnswersList: [false, true, true, true]
       },
@@ -421,9 +421,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_04.jpg?alt=media&token=83a891f1-53a7-4e76-96c8-69144e94921c`,
 
         links: {
-          apple: '8',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.2P6WgV1hVJvoR4J',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPjDpCtxWDLl59NvJ2KffDm',
+          spotify: 'https://open.spotify.com/playlist/2VrQftEWCk5YGHE07gVMQ8?si=d48fcff8810a41f8'
         },
         requiredAnswersList: [false, true, true, false]
       },
@@ -432,9 +432,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_10.jpg?alt=media&token=1f992633-429c-4f57-aeef-ddbfe5eac3e5`,
 
         links: {
-          apple: '9',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.5PG5gGPcb1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOb6gb80y1CH6hFAPBIcOND',
+          spotify: 'https://open.spotify.com/playlist/2iz1S6mAsBRmp5c6FICoEQ'
         },
         requiredAnswersList: [false, true, false]
       },
@@ -443,9 +443,9 @@
         imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%BD%D0%BE%D0%B2%D0%B8%D0%B8%CC%86.jpg?alt=media&token=12362d8e-57b9-4053-ad76-9ef8d52c7c04`,
 
         links: {
-          apple: '10',
-          youtube: '',
-          spotify: ''
+          apple: 'https://music.apple.com/library/playlist/p.KoKOWEkF3orlKLo',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOmEAC4AON-lJzqo5RA-bhw',
+          spotify: 'https://open.spotify.com/playlist/09xvhp2Iy6mjsRrt3m3dvq'
         },
         requiredAnswersList: [false, false, true]
       },
@@ -515,6 +515,7 @@
             setTimeout(() => {
               links.forEach((link) => {
                 link.classList.add('linkVisible')
+                link.href = currentPlaylist.links[link.getAttribute('data-type')]
               })
             }, 1000);
           }, 100);
