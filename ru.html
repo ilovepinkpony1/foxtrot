@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;300;600;700&display=swap" rel="stylesheet">
+  <style>
+    .uklon {
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .uklon .imageWrapper {
+      border-radius: 4px;
+      max-height: 300px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+    }
+
+    .uklon .resultScreen .imageWrapper {
+      max-width: 50%;
+    }
+
+    .uklon .imageWrapper img {
+      width: 100%;
+    }
+
+    .uklon .gameScreen .imageWrapper {
+      transition: 1.1s all ease;
+      will-change: opacity, transform;
+    }
+
+    .uklon .gameScreen .imageWrapperHidden {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+
+    .uklon .questionWrapper {
+      margin: 32px 0;
+      line-height: 24px;
+      font-weight: 300;
+      transition: 1s all ease;
+      will-change: opacity, transform;
+      color: #fff;
+    }
+
+    .uklon .questionWrapper a {
+      color: #fff;
+    }
+
+    .uklon .questionWrapperHidden {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+
+    .uklon .answersWrapper {
+      display: flex;
+      transition: 1s all ease;
+    }
+
+    .uklon .answersWrapperHidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-40px);
+    }
+
+    .uklon .answerButton {
+      color: #fff;
+      background-color: rgb(24, 24, 24);
+      width: 240px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin: 0 8px;
+      cursor: pointer;
+      transition: 0.5s all ease;
+      will-change: transform;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+      border: none;
+    }
+
+    .uklon .answerButton:active,
+    .uklon .answerButton:focus {
+      transform: scale(0.95);
+      outline: none;
+    }
+
+    .uklon .answerButton:hover {
+      transform: scale(1.05);
+    }
+
+    .uklon .linksWrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .uklon .linksWrapper a {
+      color: #fff;
+      background-color: rgb(24, 24, 24);
+      flex: 1;
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin: 0 8px;
+      cursor: pointer;
+      transition: 1s all ease;
+      will-change: transform;
+      box-shadow: 0px 4px 26px -11px rgba(34, 60, 80, 0.5);
+      border: none;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(-40px);
+      user-select: none;
+    }
+
+    .uklon .linksWrapper a:nth-child(2) {
+      transition-delay: .2s;
+    }
+
+    .uklon .linksWrapper a:nth-child(2) {
+      transition-delay: .4s;
+    }
+
+    .uklon .linksWrapper a:nth-child(3) {
+      transition-delay: .6s;
+    }
+
+    .uklon .startScreen .answerButton {
+      text-transform: uppercase;
+    }
+
+
+    .uklon .linkVisible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      user-select: all !important;
+    }
+
+    .uklon .gameScreen,
+    .uklon .resultScreen,
+    .uklon .startScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 1s all ease;
+      will-change: transform, opacity;
+    }
+
+    .uklon .gameScreen,
+    .uklon .resultScreen {
+      display: none;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    .uklon .startScreen h2 {
+      margin: 32px 0;
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .uklon .startScreen .questionWrapper {
+      margin-top: 0;
+    }
+
+    .uklon .startScreen .answerButton {
+      height: 48px;
+      font-size: 18px;
+    }
+
+    .uklon .gameScreenDisplay,
+    .uklon .resultScreenDisplay {
+      display: flex;
+    }
+
+    .uklon .gameScreenVisible,
+    .uklon .resultScreenVisible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .uklon .startScreenHidden,
+    .uklon .gameScreenHidden {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    @media(max-width: 1024px) {
+      .uklon .wrapper {
+        padding: 0 16px;
+      }
+
+      .uklon .answersWrapper {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .uklon .answerButton {
+        margin: 8px 0;
+        width: 100%;
+      }
+
+
+      .uklon .linksWrapper a {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .uklon .linksWrapper {
+        flex-direction: column;
+      }
+    }
+
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper uklon">
+
+    <div class="startScreen">
+      <div class="imageWrapper">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover%20(1).jpg?alt=media&token=c8bcd746-9b12-431a-806f-4630f472cfc5"
+          alt="default image">
+      </div>
+
+      <!-- <h2>
+        Omae wa doko made miteru
+      </h2> -->
+
+      <div style="margin-top: 32px;" class="questionWrapper">
+        Мы вместе с <a target="_blank" href="https://uklon.com.ua/">Uklon</a> хотим, чтобы вы не откладывали праздники на праздники и начинали легонько топать ножкой уже сегодня.
+        Для этого мы и наши звездные друзья собрали 10 плейлистов под разные ситуации, которые могут произойти с вами до Нового
+        года. От поездки на тусовку и скупки подарков в последний день и до камерной новогодней вечеринки на кухне в 4 утра.
+        Все, что нужно сделать, — это ответить на несколько вопросов и получить свой плейлист. Леетсгоуу.
+      </div>
+
+      <div class="answersWrapper">
+        <button class="answerButton">Начать тест</button>
+      </div>
+    </div>
+
+    <div class="gameScreen">
+      <div class="imageWrapper">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D1%81%D1%8C%D0%BA%D0%B5%20%D0%BB%D0%BB%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%20%D0%BD%D0%B5%D1%81%D0%B5%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%B0%20%D0%B2%D1%96%D0%B4%20%D1%96%CC%88%D0%B6%D1%96%20%D1%81%D1%82%D1%96%D0%BB%20%D0%BB%D0%B0%D0%BC%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D1%85%D0%BE%D1%87%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%B8%CC%86%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D0%BA%D0%BE%D1%8E%2C%20%D0%B0%D0%B1%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D0%BF%D0%B0%D0%B2.%20%D0%A3%D0%B6%D0%B5%20%D1%81%D1%96%D0%BB%D0%B8%20%D0%B7%D0%B0%20%D1%81%D1%82%D1%96%D0%BB%20%D1%96%20%D1%80%D0%BE%D0%B7%D0%BF%D0%BE%D1%87%D0%B0%D0%BB%D0%B8%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=2271ba3a-2845-4998-aaaf-26ecfd2140a7"
+          alt="default image">
+      </div>
+
+      <div class="questionWrapper"></div>
+
+      <div class="answersWrapper">
+        <button class="answerButton answerButtonPositive">Да</button>
+        <button class="answerButton answerButtonNegative">Нет</button>
+      </div>
+    </div>
+
+    <div class="resultScreen">
+      <div class="imageWrapper">
+        <img alt="default image">
+      </div>
+
+      <div class="questionWrapper"></div>
+
+      <div class="linksWrapper">
+        <a data-type='apple' target="_blank">Apple music</a>
+        <a data-type='spotify' target="_blank">Spotify</a>
+        <a data-type='youtube' target="_blank">Youtube music</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: `Шампанское льется, народ несется, а от еды стол ломается, что хоть подпирай табуреткой, чтобы не упал. Уже сели за стол и начали празднование Нового года?`,
+        requiredAnswersList: [],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A8%D0%B0%D0%BC%D0%BF%D0%B0%D0%BD%D1%81%D1%8C%D0%BA%D0%B5%20%D0%BB%D0%BB%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%20%D0%BD%D0%B5%D1%81%D0%B5%D1%82%D1%8C%D1%81%D1%8F%2C%20%D0%B0%20%D0%B2%D1%96%D0%B4%20%D1%96%CC%88%D0%B6%D1%96%20%D1%81%D1%82%D1%96%D0%BB%20%D0%BB%D0%B0%D0%BC%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D1%85%D0%BE%D1%87%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%B8%CC%86%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D0%BA%D0%BE%D1%8E%2C%20%D0%B0%D0%B1%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D0%BF%D0%B0%D0%B2.%20%D0%A3%D0%B6%D0%B5%20%D1%81%D1%96%D0%BB%D0%B8%20%D0%B7%D0%B0%20%D1%81%D1%82%D1%96%D0%BB%20%D1%96%20%D1%80%D0%BE%D0%B7%D0%BF%D0%BE%D1%87%D0%B0%D0%BB%D0%B8%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=2271ba3a-2845-4998-aaaf-26ecfd2140a7'
+      },
+      {
+        text: `А что, возможно, планируете куда-то ехать или едете в транспорте?`,
+        requiredAnswersList: [false],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%90%20%D1%89%D0%BE%2C%20%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D0%BF%D0%BB%D0%B0%D0%BD%D1%83%D1%94%D1%82%D0%B5%20%D0%BA%D1%83%D0%B4%D0%B8%D1%81%D1%8C%20%D1%96%CC%88%D1%85%D0%B0%D1%82%D0%B8%20%D1%87%D0%B8%20%D0%B2%D0%B6%D0%B5%20%D1%96%CC%88%D0%B4%D0%B5%D1%82%D0%B5%20%D0%B2%20%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D1%96_.jpg?alt=media&token=79341422-32cd-4d67-a7c4-45dfdee9c64b'
+      },
+      {
+        text: `Прекрасно. Президент уже выступал и сказал, что в следующем году все будут суперсчастливы и здоровы?`,
+        requiredAnswersList: [true],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_test_03.jpg?alt=media&token=5f778fea-ac74-49e5-8a21-bace7cd100e3'
+      },
+      {
+        text: `Хорошо. А как общий вайб вечеринки: кто уже танцует на табуретке, которой подпирали стол? Гремит ли музыка так, что соседи серьезно задумываются звонить в полицию?`,
+        requiredAnswersList: [true, true],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%94%D0%BE%D0%BE%D0%B1%D1%80%D0%B5.%20%D0%90%20%D1%8F%D0%BA%20%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B8%CC%86%20%D0%B2%D0%B0%D0%B8%CC%86%D0%B1%20%D0%B2%D0%B5%D1%87%D1%96%D1%80%D0%BA%D0%B8_%20%D1%85%D1%82%D0%BE%D1%81%D1%8C%20%D1%83%D0%B6%D0%B5%20%D1%82%D0%B0%D0%BD%D1%86%D1%8E%D1%94%20%D0%BD%D0%B0%20%D1%82%D0%B0%D0%B1%D1%83%D1%80%D0%B5%D1%82%D1%86%D1%96%2C%20%D1%8F%D0%BA%D0%BE%D1%8E%20%D0%BF%D1%96%D0%B4%D0%BF%D0%B8%D1%80%D0%B0%D0%BB%D0%B8%20%D1%81%D1%82%D1%96%D0%BB_%20%D0%A7%D0%B8%20%D0%BC%D1%83%D0%B7%D0%B8%D0%BA%D0%B0%20%D0%B3%D1%80%D0%B8%D0%BC%D0%B8%D1%82%D1%8C%20%D1%82%D0%B0%D0%BA%2C%20%D1%89%D0%BE%20%D1%81%D1%83%D1%81%D1%96%D0%B4%D0%B8%20%D1%81%D0%B5%D1%80%D0%B8%CC%86%D0%BE%D0%B7%D0%BD%D0%BE%20%D0%B7%D0%B0%D0%B4%D1%83%D0%BC%D1%83%D1%8E%D1%82%D1%8C%D1%81%D1%8F%20%D0%B4%D0%B7%D0%B2%D0%BE%D0%BD%D0%B8%D1%82%D0%B8%20%D0%B2%20%D0%BF%D0%BE%D0%BB%D1%96%D1%86%D1%96%D1%8E_.jpg?alt=media&token=9e7b7aac-87d4-4c87-ad29-91fcf249a3bd'
+      },
+      {
+        text: `Окей, и на этом спасибо. Тогда, может, у вас все очень камерно? Уже скоро будет светать, а вас несколько человек на кухне, и разговоры несутся, хоть бери и подкаст записывай?`,
+        requiredAnswersList: [true, true, false],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9E%D0%BA%D0%B5%D0%B8%CC%86%2C%20%D1%96%20%D0%BD%D0%B0%20%D1%86%D1%8C%D0%BE%D0%BC%D1%83%20%D0%B4%D1%8F%D0%BA%D1%83%D1%94%D0%BC%D0%BE.%20%D0%A2%D0%BE%D0%B4%D1%96%2C%20%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D1%83%20%D0%B2%D0%B0%D1%81%20%D1%83%D1%81%D0%B5%20%D0%B4%D1%83%D0%B6%D0%B5%20%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%BD%D0%BE_%20%D0%A3%D0%B6%D0%B5%20%D1%81%D0%BA%D0%BE%D1%80%D0%BE-%D1%81%D0%BA%D0%BE%D1%80%D0%BE%20%D1%81%D0%B2%D1%96%D1%82%D0%B0%D1%82%D0%B8%D0%BC%D0%B5%2C%20%D0%B0%20%D0%B2%D0%B0%D1%81%20%D0%B4%D0%B5%D0%BA%D1%96%D0%BB%D1%8C%D0%BA%D0%B0%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B8%CC%86%20%D0%BD%D0%B0%20%D0%BA%D1%83%D1%85%D0%BD%D1%96%2C%20%D0%B8%CC%86%20%D1%80%D0%BE%D0%B7%D0%BC%D0%BE%D0%B2%D0%B8%20%D0%BD%D0%B5%D1%81%D1%83%D1%82%D1%8C%D1%81%D1%8F%2C%20%D1%85%D0%BE%D1%87%20%D0%B1%D0%B5%D1%80%D0%B8%20%D1%82%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%B0%D1%81%D1%82%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%83%D0%B8%CC%86_.jpg?alt=media&token=336de616-c7bc-4048-b60b-b4038dba1d20'
+      },
+      {
+        text: `Вы, случайно, не мандарины чистите?`,
+        requiredAnswersList: [true, false],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%92%D0%B8%20%D1%87%D0%B0%D1%81%D0%BE%D0%BC%20%D0%BD%D0%B5%20%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D0%B8%D0%BD%D0%B8%20%D1%87%D0%B8%D1%81%D1%82%D0%B8%D1%82%D0%B5_.jpg?alt=media&token=42dae356-1ef1-478c-8afb-6428364aa241'
+      },
+      {
+        text: `Чувствуете ли легенькое волнение?`,
+        requiredAnswersList: [false, true],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A7%D0%B8%20%D0%B2%D1%96%D0%B4%D1%87%D1%83%D0%B2%D0%B0%D1%94%D1%82%D0%B5%20%D0%BB%D0%B5%D0%B3%D0%B5%D1%81%D0%B5%D0%BD%D1%8C%D0%BA%D0%B5%20%D1%85%D0%B2%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F_%20.jpg?alt=media&token=29e12759-bb05-4567-9b49-e7d874fdcc7d'
+      },
+      {
+        text: `Возможно, вы активно готовитесь к празднованию Нового года, все горит и пылает, и даже немного пахнет?`,
+        requiredAnswersList: [false, false],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%9C%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%2C%20%D0%B2%D0%B8%20%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%20%D0%B3%D0%BE%D1%82%D1%83%D1%94%D1%82%D0%B5%D1%81%D1%8F%20%D0%B4%D0%BE%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83%2C%20%D0%B2%D1%81%D0%B5%20%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D1%8C%20%D1%96%20%D0%B2%D1%81%D0%B5%20%D0%BF%D0%B0%D0%BB%D0%B0%D1%94%2C%20%D1%96%20%D0%BD%D0%B0%D0%B2%D1%96%D1%82%D1%8C%20%D1%82%D1%80%D1%96%D1%88%D0%BA%D0%B8%20%D0%BF%D0%B0%D1%85%D0%BD%D0%B5_.jpg?alt=media&token=b9726918-9c03-4354-8855-10006a56c9d0'
+      },
+      {
+        text: `Надеемся, что вы успели все купить к празднованию Нового года?`,
+        requiredAnswersList: [false, true, true],
+        bgImage: 'https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/%D0%A1%D0%BF%D0%BE%D0%B4%D1%96%D0%B2%D0%B0%D1%94%D0%BC%D0%BE%D1%81%D1%8F%2C%20%D1%89%D0%BE%20%D0%B2%D0%B8%20%D0%B2%D1%81%D1%82%D0%B8%D0%B3%D0%BB%D0%B8%20%D0%B2%D1%81%D0%B5%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D0%B8%20%D0%B4%D0%BE%20%D1%81%D0%B2%D1%8F%D1%82%D0%BA%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%BE%D0%BA%D1%83_.jpg?alt=media&token=383640f6-f630-404d-b78a-37c604f5c7ea'
+      },
+    ]
+
+    const playlists = [
+      {
+        text: `И не говорите, что мы не предупреждали.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_08_ru.jpg?alt=media&token=1ef07f50-c02e-47bf-b363-c9f083778ad5`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.pmrAeqACeZLJvMZ',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZMQAvEXQ9Z0MQZ2IILRVzJm',
+          spotify: 'https://open.spotify.com/playlist/6awe55EwcXYsUmG24md8lt'
+        },
+        requiredAnswersList: [true, true, true]
+      },
+      {
+        text: `Музыка, что убережет вас от людей, которые постоянно подходят и просят всех танцевать. Ибо именно вы будете этим человеком. Ха, почти как предсказание на чеке одной известной продуктовой сети.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_07_ru.jpg?alt=media&token=8297bd76-6879-435c-b9eb-a28d8b18257a`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.5PG5gKeib1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZMBXraDrlp3usL3rPOiTJej',
+          spotify: 'https://open.spotify.com/playlist/2gMySXVFpQDekNgm7tQKqL?si=d3dbc77eabe443cd&nd=1'
+        },
+        requiredAnswersList: [true, true, false, false]
+      },
+      {
+        text: `Все мелодии уже спели, все стихи уже написали, все люди уже уснули. И вся вечеринка держится только на нескольких поэтических душах на кухне. Микрофон ваш.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_09_ru.jpg?alt=media&token=6756373e-c0ba-4fd8-9bfc-53bdb19bcdd3`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.8Wx6LVDiMaQP6Da',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZNoqXaZ78seB020r6i2kMGO',
+          spotify: 'https://open.spotify.com/playlist/59Ezo2S2LxI5H6kaTZU8fz'
+        },
+        requiredAnswersList: [true, true, false, true]
+      },
+      {
+        text: `Одну дольку за маму, одну за папу, одну за любимое медиа, нескучно рассказывающее о креативной экономике.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_01_ru.jpg?alt=media&token=fdcd5041-a653-4064-be52-71e270b98a70`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.oOzAa4ouEaJNMZa',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOgcqCkEo-iL941smuAldrM',
+          spotify: 'https://open.spotify.com/playlist/7xX9ljdVdBgwwHdIqTUlWS'
+        },
+        requiredAnswersList: [true, false, true]
+      },
+      {
+        text: `Осталось еще немного, и уже можно перестать всем говорить «С наступающими праздниками!».`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_06_ru.jpg?alt=media&token=903cb03e-3a81-4467-95f7-97ef3fbab672`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.5PG5g68hb1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPw3ufLFwlFFpgAC3l1U0Ow',
+          spotify: 'https://open.spotify.com/playlist/4NI1CuhId5dVh9RJhLVb71'
+        },
+        requiredAnswersList: [true, false, false]
+      },
+      {
+        text: `Мы так и знали, что вы проходите этот тест на работе. Keep pushing, осталось совсем немного — и выходные. А пока держите музыку для своих щелчков на компьютере. Не забудьте поделиться с коллегами.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_02_ru.jpg?alt=media&token=2583cc5c-8744-46c9-b825-aecf515a9b12`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.kGoqXWMCd5E4zx5',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOSRF_tlOhPUaG3Qbuejhbp',
+          spotify: 'https://open.spotify.com/playlist/2NpdUuUUfv0eBdG7GMYSkd'
+        },
+        requiredAnswersList: [false, false, false]
+      },
+      {
+        text: `Йоооу, а этот плейлист делал я, человек, пишущий этот текст. Рекомендуется к употреблению в такси перед вечеринками и новогодней тусовкой, чтобы настроиться на ту же волну, о которой пел Marvin Gaye.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_05_ru.jpg?alt=media&token=2ca5526d-2306-4e4f-ba29-61c7e198bf34`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.pmrAevVIeZLJvMZ',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPdke0e-VIJt88lBcu-XB2M',
+          spotify: 'https://open.spotify.com/playlist/6XTjPzoRvVFiZ1rgk3rhnF'
+        },
+        requiredAnswersList: [false, true, true, true]
+      },
+      {
+        text: `Скупаете подарки в последний момент. Ну, какой год такой и шопинг.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_04_ru.jpg?alt=media&token=0186ea6d-97f6-446e-942b-d60ff3ac0268`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.2P6WgV1hVJvoR4J',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZPjDpCtxWDLl59NvJ2KffDm',
+          spotify: 'https://open.spotify.com/playlist/2VrQftEWCk5YGHE07gVMQ8?si=d48fcff8810a41f8'
+        },
+        requiredAnswersList: [false, true, true, false]
+      },
+      {
+        text: `Мы уже почти приехали, еще немного и будете дома спать, а пока потопчите еще хоть немного ножкой и покрутите пальчиком под музыку.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_10_ru.jpg?alt=media&token=f788b20e-c950-4441-872a-2834de23ec09`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.5PG5gGPcb1BQam1',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOb6gb80y1CH6hFAPBIcOND',
+          spotify: 'https://open.spotify.com/playlist/2iz1S6mAsBRmp5c6FICoEQ'
+        },
+        requiredAnswersList: [false, true, false]
+      },
+      {
+        text: `Праздник приближается, а у вас еще елка без звездочки и холодильник не забит салатами и кока-колой. Давайте исправлять это.`,
+        imageLink: `https://firebasestorage.googleapis.com/v0/b/vector-54c00.appspot.com/o/vctr_uklon_cover_03_ru.jpg?alt=media&token=3a57de29-015c-4c46-9423-1363d263742a`,
+
+        links: {
+          apple: 'https://music.apple.com/library/playlist/p.KoKOWEkF3orlKLo',
+          youtube: 'https://music.youtube.com/playlist?list=PLS9FDeHOVRZOmEAC4AON-lJzqo5RA-bhw',
+          spotify: 'https://open.spotify.com/playlist/09xvhp2Iy6mjsRrt3m3dvq'
+        },
+        requiredAnswersList: [false, false, true]
+      },
+    ]
+
+    window.addEventListener('load', () => {
+      const results = []
+      const textWrapper = document.querySelector('.uklon .gameScreen .questionWrapper')
+      const answerButtonPositive = document.querySelector('.uklon .gameScreen .answerButtonPositive')
+      const answerButtonNegative = document.querySelector('.uklon .gameScreen .answerButtonNegative')
+      const answersWrapper = document.querySelector('.uklon .gameScreen .answersWrapper')
+      const image = document.querySelector('.uklon .resultScreen img')
+      const questionImage = document.querySelector('.uklon .gameScreen img')
+      const questionImageWrapper = document.querySelector('.uklon .gameScreen .imageWrapper')
+      const links = document.querySelectorAll('.uklon .resultScreen .linksWrapper a')
+
+      const startButton = document.querySelector('.uklon .startScreen .answerButton')
+      const startScreen = document.querySelector('.uklon .startScreen')
+      const gameScreen = document.querySelector('.uklon .gameScreen')
+      const resultScreen = document.querySelector('.uklon .resultScreen')
+      const resultScreenText = document.querySelector('.uklon .resultScreen .questionWrapper')
+
+      textWrapper.innerHTML = questions[0].text
+
+      const handlePositiveAnswer = () => {
+        results.push(true)
+        handleCurrentQuestion()
+      }
+
+      const handleNegativeAnswer = () => {
+        results.push(false)
+        handleCurrentQuestion()
+      }
+
+      const handleStartGame = () => {
+        startScreen.classList.add('startScreenHidden')
+
+        setTimeout(() => {
+          startScreen.remove()
+
+          gameScreen.classList.add('gameScreenDisplay')
+
+          setTimeout(() => {
+            gameScreen.classList.add('gameScreenVisible')
+          }, 100);
+        }, 1000);
+      }
+
+      const handleEnd = () => {
+        const currentPlaylist = playlists.find(playlist => {
+          return results.every((result, index) => {
+            return result === playlist.requiredAnswersList[index]
+          })
+        })
+
+
+        gameScreen.classList.add('gameScreenHidden')
+        image.setAttribute('src', currentPlaylist.imageLink)
+        resultScreenText.innerHTML = currentPlaylist.text
+
+        setTimeout(() => {
+          gameScreen.remove()
+          resultScreen.classList.add('resultScreenDisplay')
+
+          setTimeout(() => {
+            resultScreen.classList.add('resultScreenVisible')
+            setTimeout(() => {
+              links.forEach((link) => {
+                link.classList.add('linkVisible')
+                link.href = currentPlaylist.links[link.getAttribute('data-type')]
+              })
+            }, 1000);
+          }, 100);
+        }, 1000);
+      }
+
+      const handleCurrentQuestion = () => {
+        textWrapper.classList.add('questionWrapperHidden')
+        questionImageWrapper.classList.add('imageWrapperHidden')
+
+        const currentQuestion = questions.find(question => {
+          if (question.requiredAnswersList.length) {
+            return results.every((result, index) => {
+              return result === question.requiredAnswersList[index]
+            })
+          }
+
+          return false
+        })
+
+        if (currentQuestion) {
+
+          setTimeout(() => {
+            questionImage.setAttribute('src', currentQuestion.bgImage)
+          }, 500);
+
+          setTimeout(() => {
+            textWrapper.innerHTML = currentQuestion.text
+            textWrapper.classList.remove('questionWrapperHidden')
+            questionImageWrapper.classList.remove('imageWrapperHidden')
+
+          }, 1000);
+
+        } else {
+          handleEnd()
+        }
+      }
+
+      startButton.addEventListener('click', handleStartGame)
+      answerButtonPositive.addEventListener('click', handlePositiveAnswer)
+      answerButtonNegative.addEventListener('click', handleNegativeAnswer)
+    })
+  </script>
+
+</body>
+
+</html>
